@@ -31,5 +31,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhijithvijayan/keycodes.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhijithvijayan/keycodes/issues"
+  },
+  "homepage": "https://github.com/abhijithvijayan/keycodes#readme",
   "description": ""
 }
