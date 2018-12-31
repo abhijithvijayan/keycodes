@@ -1,10 +1,36 @@
 var UIcontroller = (function() {
 
     var DOMStrings = {
-        keycode: ".keycode"
+        keycode: ".keycode__value",
+        key: ".key__value",
+        which: ".which__value",
+        code: ".code__value",
+        loc: ".location__value"
     }; 
 
     return {
+
+        
+        updateUIelements: (obj) => {
+            let keyCode, key, code, loc;
+
+            keyCode = obj.keyCode;
+            key = obj.key;
+            code = obj.code;
+            loc = obj.loc;
+
+            document.querySelector(DOMStrings.keycode).textContent = keyCode;
+            document.querySelector(DOMStrings.key).textContent = key;
+            document.querySelector(DOMStrings.which).textContent = keyCode;
+            document.querySelector(DOMStrings.code).textContent = code;
+            document.querySelector(DOMStrings.loc).textContent = loc;
+
+            // console.log(keyCode);
+            // console.log(key); 
+            // console.log(code);
+            // console.log(location);
+            
+        },
 
         getDOMStrings: () => {
             return DOMStrings;
@@ -13,6 +39,10 @@ var UIcontroller = (function() {
 })();
 
 var controller = (function(UICtrl) {
+
+    var keycodeObject = (obj) => {
+        UICtrl.updateUIelements(obj);
+    };
 
     var setUpEventListeners = () => {
         var DOM;
@@ -43,8 +73,8 @@ var controller = (function(UICtrl) {
             let keyCode = e.which || e.keyCode;
             console.log(keyCode);
             // 2. key
-            let Key = e.key;
-            console.log(Key); 
+            let key = e.key;
+            console.log(key); 
             // 3. code
             let code = e.code;
             console.log(code);
@@ -52,6 +82,15 @@ var controller = (function(UICtrl) {
             let location = e.location;
             // 0 -> general, 1 -> left modification, 2 -> right modification, 3 ->numpad
             console.log(location);
+            
+            var obj = {
+                keyCode: keyCode,
+                key: key,
+                code: code,
+                loc: location
+            }  
+
+            keycodeObject(obj);
 
         });
     };
