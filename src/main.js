@@ -88,6 +88,9 @@ var controller = (function(UICtrl) {
                 code: code,
                 loc: location
             }  
+
+            document.getElementById('overlay').style = "display: none;";
+            document.getElementById('home').classList.remove('d-none');
             
             keycodeObject(obj);
             
